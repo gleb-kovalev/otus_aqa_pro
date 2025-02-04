@@ -1,0 +1,5 @@
+<FindBugsFilter>
+  <Match>
+    <Bug pattern="CT_CONSTRUCTOR_THROW"/>
+  </Match>
+</FindBugsFilter>

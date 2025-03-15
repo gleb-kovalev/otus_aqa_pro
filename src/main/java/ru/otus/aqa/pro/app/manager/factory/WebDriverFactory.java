@@ -10,6 +10,7 @@ import org.openqa.selenium.support.events.EventFiringDecorator;
 import ru.otus.aqa.pro.app.manager.factory.settings.ChromeSettings;
 import ru.otus.aqa.pro.app.manager.factory.settings.FirefoxSettings;
 import ru.otus.aqa.pro.app.listener.MouseListener;
+import java.time.Duration;
 
 public class WebDriverFactory {
   private String browserName = System.getProperty("browser.name");
@@ -31,6 +32,8 @@ public class WebDriverFactory {
       default:
         throw new IllegalArgumentException(String.format("Unknown browser %s", browserName));
     }
+
+    driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 
     return new EventFiringDecorator<>(new MouseListener()).decorate(driver);
   }

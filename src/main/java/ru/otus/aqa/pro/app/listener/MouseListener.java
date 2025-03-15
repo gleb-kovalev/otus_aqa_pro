@@ -14,31 +14,15 @@ public class MouseListener implements WebDriverListener {
     js.executeScript("arguments[0].style.border='3px solid red'", element);
   }
 
-  //  private void resetElementStyle(WebElement element, WebDriver driver) {
-  //    JavascriptExecutor js = (JavascriptExecutor) driver;
-  //    js.executeScript("arguments[0].style.border=''", element);
-  //  }
-
-
   @Override
   public void beforeClick(WebElement element) {
     highlightElement(element, ((RemoteWebElement) element).getWrappedDriver());
   }
 
-  //  @Override
-  //  public void afterClick(WebElement element) {
-  //    resetElementStyle(element, ((RemoteWebElement) element).getWrappedDriver());
-  //  }
-
   @Override
   public void beforeFindElement(WebElement element, By locator) {
     highlightElement(element, ((RemoteWebElement) element).getWrappedDriver());
   }
-
-  //  @Override
-  //  public void afterFindElement(WebElement element, By locator, WebElement result) {
-  //    resetElementStyle(element, ((RemoteWebElement) element).getWrappedDriver());
-  //  }
 
 
 }

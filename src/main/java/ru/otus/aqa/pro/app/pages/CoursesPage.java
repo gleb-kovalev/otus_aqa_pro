@@ -48,6 +48,19 @@ public class CoursesPage extends AbsBasePage<CoursesPage> {
     return lessonPage;
   }
 
+  public String getRandomCourseName() {
+
+    var allCourses = getAllCoursesVisibleInCatalogSection();
+
+    Random rand = new Random();
+
+    var randomCourse = allCourses.get(rand.nextInt(allCourses.size()));
+
+    return getCourseName(randomCourse);
+
+  }
+
+
   public WebElement getCourseWithEarliestStartDate() {
     HashMap<WebElement, LocalDate> courseAndStartDate = getCourseAndStartDate();
 

@@ -25,13 +25,13 @@ public class CoursesCatalogTest {
   @Test
   public void nameCourseAtAvatarTheSameAsAtCourseCard() {
 
-    //TODO создать метод который будет собирать все названия курсов и возвращать рандомное название
-    String testData = "QA Lead";
+    coursesPage.open();
+
+    var courseName = coursesPage.getRandomCourseName();
 
     coursesPage
-        .open()
-        .openCourseCardByCourseName(testData)
-        .pageHeaderShouldBeSameAs(testData);
+        .openCourseCardByCourseName(courseName)
+        .pageHeaderShouldBeSameAs(courseName);
   }
 
   @Test

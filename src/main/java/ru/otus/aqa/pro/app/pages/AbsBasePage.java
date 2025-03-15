@@ -67,12 +67,6 @@ public abstract class AbsBasePage<T> extends AbsCommon {
     waiters.waitForElementToBeClickable(cookieAcceptButton);
 
     clickViaWebElement(cookieAcceptButton);
-
-
-    // TODO добавить ожидание полной загрузки страницы
-    // TODO сейчас если аннотация PathPage пустая то метод возвращает "/" вместо исключения
-    //  решить это
-
     return (T) this;
   }
 
@@ -81,7 +75,11 @@ public abstract class AbsBasePage<T> extends AbsCommon {
 
     if (clazz.isAnnotationPresent(PathPage.class)) {
       PathPage path = clazz.getDeclaredAnnotation(PathPage.class);
-      return path.value().startsWith("/") ? path.value() : "/" + path.value();
+      String value = path.value().trim();
+      if (value.isEmpty()) {
+        return "";
+      }
+      return value.startsWith("/") ? path.value() : "/" + path.value();
     }
     return "";
   }

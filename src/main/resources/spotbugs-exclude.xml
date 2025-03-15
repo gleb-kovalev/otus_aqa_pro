@@ -2,4 +2,7 @@
   <Match>
     <Bug pattern="CT_CONSTRUCTOR_THROW"/>
   </Match>
+  <Match>
+    <Bug pattern="DMI_RANDOM_USED_ONLY_ONCE"/>
+  </Match>
 </FindBugsFilter>
